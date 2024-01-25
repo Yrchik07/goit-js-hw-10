@@ -1,0 +1,55 @@
+.box_timer{
+  margin-top: 36px;
+  margin-left: 156px;
+  /* width: 346px; */
+}
+#datetime-picker{
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  margin-right: 8px;
+}
+button{
+  width: 75px;
+  height: 40px;
+  color: #989898;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
+letter-spacing: 0.64px;
+border-radius: 8px;
+border: 0;
+background: #CFCFCF;
+}
+.timer{
+  min-width: 360px;
+  margin-top: 32px;
+  display: flex;
+  font-weight: normal;
+  gap: 24px;
+}
+.field{
+  min-width: 48px;
+  justify-content: center;
+
+}
+.value{
+  color: #2E2F42;
+font-family: Montserrat;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 48px; /* 120% */
+letter-spacing: 1.6px;
+}
+.label{
+  color: #2E2F42;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
