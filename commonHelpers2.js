@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */import"./assets/vendor-77e16229.js";const o=document.querySelector('input[name="delay"]');document.querySelector('input[value="fulfilled"]');document.querySelector('input[value="rejected"]');const i=document.querySelector("button");i.addEventListener("click",()=>{o.value,new Promise((e,t)=>{setTimeout(()=>{Math.random()>.5?e("Смачного"):t("Sorry")},400)})});
+//# sourceMappingURL=commonHelpers2.js.map
