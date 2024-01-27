@@ -25,7 +25,7 @@ border: 0;
 background: #CFCFCF;
 }
 .timer{
-  min-width: 360px;
+  max-width: 360px;
   margin-top: 32px;
   display: flex;
   font-weight: normal;
