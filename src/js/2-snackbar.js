@@ -5,31 +5,39 @@ const numberOfMilliseconds = document.querySelector('input[name="delay"]');
 const radioFulfilled = document.querySelector('input[value="fulfilled"]');
 const radioRejected = document.querySelector('input[value="rejected"]');
 const btnSubmit = document.querySelector('button');
-// const milliseconds = numberOfMilliseconds.value;
-// console.log(delay)
 
-btnSubmit.addEventListener('click', () =>{
+btnSubmit.addEventListener('click', (e) =>{
+  e.preventDefault();
   const delay = numberOfMilliseconds.value;
   const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    const isActive = Math.random() > 0.5;
-    if (isActive) {
-      resolve('Смачного');
+    if (radioFulfilled.checked) {
+      resolve(`${delay}`);
     } else {
-      reject('Sorry');
+      reject(`${delay}`);
     }
-  }, 400);
+  }, 1000);
 });
-//   if(radioFulfilled.disabled){
-//   iziToast.show({
-//     message: `✅ Fulfilled promise in ${delay}ms`,
-//     messageColor: '#FFFFFF',
-//     backgroundColor: '#59A10D',
-//     position: 'topRight',
-//   });
-// }else{
-// console.log('hdhfghf')
-// }
-//   // console.log(numberOfMilliseconds.value)
-})
 
+
+promise.then((result) =>{
+    iziToast.show({
+    message: `✅ Fulfilled promise in ${result}ms`,
+    messageColor: '#FFFFFF',
+    backgroundColor: '#59A10D',
+    position: 'topRight',
+    });
+})
+.catch((result) => {
+// console.log(result);
+  iziToast.show({
+    message: `❌ Rejected promise in ${delay}ms`,
+    messageColor: '#FFFFFF',
+    backgroundColor: '#EF4040',
+    position: 'topRight',
+    });
+})
+// .finally(() => {
+//   console.log('Stop loader...');
+// })
+})
