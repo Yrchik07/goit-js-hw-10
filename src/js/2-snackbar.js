@@ -8,7 +8,10 @@ const btnSubmit = document.querySelector('button');
 
 btnSubmit.addEventListener('click', (e) =>{
   e.preventDefault();
-  const delay = numberOfMilliseconds.value;
+
+  let delay = numberOfMilliseconds.value;
+
+if(delay > 0 && (radioFulfilled.checked || radioRejected.checked)){
   const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     if (radioFulfilled.checked) {
@@ -16,9 +19,10 @@ btnSubmit.addEventListener('click', (e) =>{
     } else {
       reject(`${delay}`);
     }
-  }, 1000);
+  }, delay);
 });
 
+numberOfMilliseconds.value = '';
 
 promise.then((result) =>{
     iziToast.show({
@@ -29,15 +33,17 @@ promise.then((result) =>{
     });
 })
 .catch((result) => {
-// console.log(result);
-  iziToast.show({
-    message: `❌ Rejected promise in ${delay}ms`,
+ iziToast.show({
+    message: `❌ Rejected promise in ${result}ms`,
     messageColor: '#FFFFFF',
     backgroundColor: '#EF4040',
     position: 'topRight',
     });
 })
-// .finally(() => {
-//   console.log('Stop loader...');
-// })
+.finally(() => {
+  console.log('Stop loader...');
+})
+}else{
+  return;
+}
 })
